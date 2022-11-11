@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    /* background-color: rebeccapurple; */
+}
+body{
+    text-align: center;
+}
+.title{
+    color: #4b4a4a;
+    font-size: 80px;
+}
+.neir{
+    color:#4b4a4a ;
+    text-decoration: none;
+    font-size: 20px;
+
+}
+.but{
+    cursor: pointer;
+}

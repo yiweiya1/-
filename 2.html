@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./2.css">
+</head>
+
+<body background="1.webp" style="margin: 0 150px;background-repeat: no-repeat;background-attachment: fixed;background-size: 100% 100%;">
+    <h1 style="color: #fff;text-align: center;">超级无敌抽奖系统</h1>
+    <h2 class="name">录入人名:</h2>
+    <div class="context">
+        <div><label><input type="checkbox" name="people" value="阿尔祖">阿尔祖</label>
+            <label><input type="checkbox" name="people" value="邓凯茵">邓凯茵</label>
+            <label><input type="checkbox" name="people" value="丁景昊">丁景昊</label>
+            <label><input type="checkbox" name="people" value="韩玉杰">韩玉杰</label>
+            <label><input type="checkbox" name="people" value="黄柳豪">黄柳豪</label>
+            <label><input type="checkbox" name="people" value="姜禹">姜禹</label>
+            <label><input type="checkbox" name="people" value="靳思琪">靳思琪</label>
+            <label><input type="checkbox" name="people" value="刘飞">刘飞</label>
+            <label><input type="checkbox" name="people" value="李毅然">李毅然</label>
+            <label><input type="checkbox" name="people" value="刘昕彤">刘昕彤</label>
+        </div>
+        <div>
+            <label><input type="checkbox" name="people" value="商晓雪">商晓雪</label>
+            <label><input type="checkbox" name="people" value="孙以韦">孙以韦</label>
+            <label><input type="checkbox" name="people" value="王旗">王旗</label>
+            <label><input type="checkbox" name="people" value="王爽">王爽</label>
+            <label><input type="checkbox" name="people" value="王雯">王雯</label>
+            <label><input type="checkbox" name="people" value="魏童">魏童</label>
+            <label><input type="checkbox" name="people" value="温庆鹏">温庆鹏</label>
+            <label><input type="checkbox" name="people" value="文蕾">文蕾</label>
+            <label><input type="checkbox" name="people" value="温智煜">温智煜</label>
+            <label><input type="checkbox" name="people" value="谢秀明">谢秀明</label>
+        </div>
+        <div>
+            <label><input type="checkbox" name="people" value="衣丽娟">衣丽娟</label>
+            <label><input type="checkbox" name="people" value="袁士茗">袁士茗</label>
+            <label><input type="checkbox" name="people" value="于小慧">于小慧</label>
+            <label><input type="checkbox" name="people" value="扬艳清">扬艳清</label>
+            <label><input type="checkbox" name="people" value="张润泽">张润泽</label>
+            <label><input type="checkbox" name="people" value="张梦瑶">张梦瑶</label>
+            <label><input type="checkbox" name="people" value="张思林">张思林</label>
+            <label><input type="checkbox" name="people" value="朱旭泽">朱旭泽</label>
+            <label><input type="checkbox" name="people" value="张滢">张滢</label>
+            <label><input type="checkbox" name="people" value="姜东宇">姜东宇</label>
+        </div>
+
+        <div>
+            <button class="all"
+                style="font-size: 20px;color:#4c8dae;border-color: #4c8dae;background-color:#fff ; border-radius: 25%;">全选</button>
+            <button class="disall"
+                style="font-size: 20px;color:#4c8dae;border-color: #4c8dae;background-color: #fff ; border-radius: 25%;">全不选</button>
+        </div>
+    </div>
+    <h2 class="numm ">中奖人数:</h2>
+    <select name="numbers" class="numbers" id="num" style="font-size: 20px;color:#4c8dae;">
+        <option value="1">1位幸运观众</option>
+        <option value="2">2位幸运观众</option>
+        <option value="3">3位幸运观众</option>
+        <option value="4">4位幸运观众</option>
+        <option value="5">5位幸运观众</option>
+        <option value="6">6位幸运观众</option>
+        <option value="7">7位幸运观众</option>
+        <option value="8">8位幸运观众</option>
+    </select>
+    <button class="start" onfocus="blur()"
+        style="font-size: 20px;color:#4c8dae;background-color: white ; border-radius: 25%;">start</button>
+    <p class="text" style="font-size: 50px; position: absolute; left: 600px; top: 250px;">
+        <span style="color: #fff;">幸运观众请看弹窗</span>
+    </p>
+</body>
+<script>
+
+    var start = document.getElementsByClassName('start')[0]
+    var numbers = document.getElementById('num')
+    var allBut = document.getElementsByClassName('all')[0]
+    var disall = document.getElementsByClassName('disall')[0]
+    var peopleArr = []
+    function fn() {
+        var peoples = document.getElementsByName('people')
+        for (var i = 0; i < peoples.length; i++) {
+            if (peoples[i].checked) {
+                peopleArr.push(peoples[i].value)
+            }
+        }
+    }
+    function all() {
+        var peoples = document.getElementsByName('people')
+        for (var i = 0; i < peoples.length; i++) {
+            peoples[i].checked = true
+        }
+    }
+    function dll() {
+        var peoples = document.getElementsByName('people')
+        for (var i = 0; i < peoples.length; i++) {
+            peoples[i].checked = false
+        }
+    }
+    allBut.onclick = function () {
+        all()
+    }
+    disall.onclick = function () {
+        dll()
+    }
+    start.onclick = function () {
+        fn()
+        var res = []
+        var number = Number(numbers.value)
+        if (number > peopleArr.length) {
+            alert("中奖人数大于参与抽奖的人数！");
+        } else {
+            for (var i = 0; i < number; i++) {
+                var first = Math.floor(Math.random() * peopleArr.length)
+                res.push(peopleArr[first])
+                peopleArr.splice(first, 1)
+            }
+            alert(`中奖人为：${res}`)
+        }
+        peopleArr=[]
+
+    }
+
+</script>
+
+</html>

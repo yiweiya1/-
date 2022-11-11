@@ -1,0 +1,33 @@
+.name{
+    color: #fff
+}
+.numm{
+    color:#fff
+}
+label{
+    color: #4c8dae;
+    font-size: larger;
+}
+.context{
+    margin: 20px 80px;
+    justify-content: center;
+}
+.start{
+    border:2px solid #4c8dae;
+}
+.all{
+    border:2px solid #4c8dae;
+}
+.disall{
+    border:2px solid #4c8dae;
+}
+.start :focus{
+    outline: 0
+}
+.numbers{
+    outline: none;
+}
+.numbers :focus{
+    outline: none;
+    border: 1px solid white;
+}
